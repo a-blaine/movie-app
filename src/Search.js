@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Results from "./Results";
+import Movie from "./Movie";
 import axios from "axios";
 
 export default function Search() {
   const [movieName, setMovieName] = useState(" ");
+  const [movieData, setMovieData] = useState({});
 
   function SearchMovies(response) {
-    console.log(response.data);
+    setMovieData(response.data);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-
     let apiUrl = `http://www.omdbapi.com/?t=${movieName}&apikey=c032e2d7`;
     axios.get(apiUrl).then(SearchMovies);
   }
@@ -22,7 +22,7 @@ export default function Search() {
 
   return (
     <div className="Search">
-      <h1>Movieland</h1>
+      <h1>Movie Finder</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="search"
@@ -32,7 +32,7 @@ export default function Search() {
           onChange={updateMovieName}
         />
       </form>
-      <Results />
+      <Movie movieData={movieData} />
     </div>
   );
 }
