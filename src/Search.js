@@ -4,20 +4,20 @@ import axios from "axios";
 
 export default function Search() {
   const [movieName, setMovieName] = useState(" ");
-  const [movieData, setMovieData] = useState({});
+  const [movieData, setMovieData] = useState([]);
 
-  function SearchMovies(response) {
+  function searchMovies(response) {
     setMovieData(response.data);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    let apiUrl = `http://www.omdbapi.com/?t=${movieName}&apikey=c032e2d7`;
-    axios.get(apiUrl).then(SearchMovies);
   }
 
   function updateMovieName(event) {
     setMovieName(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiUrl = `http://www.omdbapi.com/?apikey=c032e2d7&s=${movieName}`;
+    axios.get(apiUrl).then(searchMovies);
   }
 
   return (
@@ -32,7 +32,7 @@ export default function Search() {
           onChange={updateMovieName}
         />
       </form>
-      <Movie movieData={movieData} />
+      <Movie movieData={movieData[0]} />
     </div>
   );
 }
