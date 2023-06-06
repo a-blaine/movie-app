@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import Results from "./Results";
 import axios from "axios";
 
-export default function Search({ defaultMovie }) {
-  const [movieName, setMovieName] = useState(defaultMovie);
+export default function Search() {
+  const [movieName, setMovieName] = useState(" ");
 
-  function search(response) {
-    console.log(response);
+  function SearchMovies(response) {
+    console.log(response.data);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setMovieName(event.target.value);
+
+    let apiUrl = `http://www.omdbapi.com/?t=${movieName}&apikey=c032e2d7`;
+    axios.get(apiUrl).then(SearchMovies);
   }
 
-  const apiKey = "cdce1964";
-  let apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&`;
-  axios.get(apiUrl).then(search(movieName));
+  function updateMovieName(event) {
+    setMovieName(event.target.value);
+  }
 
   return (
     <div className="Search">
@@ -27,6 +29,7 @@ export default function Search({ defaultMovie }) {
           placeholder="Enter a movie"
           autoFocus="off"
           autoComplete="off"
+          onChange={updateMovieName}
         />
       </form>
       <Results />
