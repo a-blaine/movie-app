@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Movies from "./Movies";
 import axios from "axios";
+import "font-awesome/css/font-awesome.min.css";
 
 export default function MovieSearch({ defaultMovie }) {
   const [movieName, setMovieName] = useState(defaultMovie);
@@ -31,17 +32,18 @@ export default function MovieSearch({ defaultMovie }) {
     return (
       <div className="MovieSearch">
         <div className="container">
-          <div className="row text-center m-5">
+          <div className="row text-center">
             <h1>MovieFinder</h1>
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
-                placeholder="Enter a movie"
+                placeholder="Search for a movie"
                 autoFocus="off"
                 autoComplete="off"
                 className="form-control"
                 onChange={updateMovieName}
               />
+              <p>Search </p>
             </form>
           </div>
           <Movies data={movieData} name={movieName} />
@@ -49,7 +51,8 @@ export default function MovieSearch({ defaultMovie }) {
       </div>
     );
   } else {
-    searchMovies();
+    searchMovies(defaultMovie);
+
     return <div>LOADING..</div>;
   }
 }

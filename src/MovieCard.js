@@ -3,7 +3,7 @@ import React from "react";
 export default function MovieCard({ movie }) {
   return (
     <div className="MovieCard">
-      <div>
+      <div className="d-none">
         <p>{movie.Year}</p>
       </div>
       <div>
