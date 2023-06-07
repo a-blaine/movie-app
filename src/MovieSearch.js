@@ -9,9 +9,7 @@ export default function MovieSearch({ defaultMovie }) {
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
-    console.log(response.data);
     setMovieData(response.data.Search);
-    setLoaded(true);
   }
 
   function searchMovies() {
@@ -31,6 +29,7 @@ export default function MovieSearch({ defaultMovie }) {
 
   function load() {
     searchMovies();
+    setLoaded(true);
   }
 
   if (loaded) {
@@ -56,6 +55,25 @@ export default function MovieSearch({ defaultMovie }) {
     );
   } else {
     load();
-    return <div>LOADING..</div>;
+    return (
+      <div className="MovieSearch">
+        <div className="container">
+          <div className="row text-center">
+            <h1>MovieFinder</h1>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="Search for a movie"
+                autoFocus="off"
+                autoComplete="off"
+                className="form-control"
+                onChange={updateMovieName}
+              />
+            </form>
+          </div>
+          <div>LOADING..</div>;
+        </div>
+      </div>
+    );
   }
 }
