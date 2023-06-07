@@ -3,9 +3,16 @@
   border: 0;
   box-sizing: border-box;
 }
+:root {
+  --bg-color: #212426;
+}
+
+html {
+  background: var(--bg-color);
+}
 
 .App {
-  background: #212426;
+  background: var(--bg-color);
   color: #fff;
 }
 
@@ -15,7 +22,7 @@
   font-size: 64px;
   font-weight: 700;
   margin: 50px 0 30px;
-  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.7));
 }
 
 .MovieSearch input[type="search"] {
