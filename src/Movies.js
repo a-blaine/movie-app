@@ -1,14 +1,14 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-export default function Movie({ data }) {
+export default function Movies({ data, name }) {
   if (data) {
     return (
-      <div className="Movie">
+      <div className="Movies">
         <div className="row">
           {data.map((movie, index) => {
             return (
-              <div className="col-3" key={index}>
+              <div className="col-3 mt-3 mb-3" key={index}>
                 <MovieCard movie={movie} />
               </div>
             );
@@ -17,6 +17,10 @@ export default function Movie({ data }) {
       </div>
     );
   } else {
-    return <div>No results found</div>;
+    return (
+      <div className="text-center">
+        No results found for <span className="text-capitalize">{name}</span>
+      </div>
+    );
   }
 }

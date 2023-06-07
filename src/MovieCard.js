@@ -14,10 +14,11 @@ export default function MovieCard({ movie }) {
               : "https://via.placeholder.com/400"
           }
           alt={movie.Title}
+          className="img-fluid"
         />
       </div>
       <div>
-        <span>{movie.Type}</span>
+        <span className="text-capitalize">{movie.Type}</span>
         <h3>{movie.Title}</h3>
       </div>
     </div>

@@ -29,24 +29,22 @@ export default function MovieSearch({ defaultMovie }) {
 
   if (loaded) {
     return (
-      <div className="Search">
+      <div className="MovieSearch">
         <div className="container">
           <div className="row text-center m-5">
-            <h1>Movie Finder</h1>
+            <h1>MovieFinder</h1>
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
                 placeholder="Enter a movie"
                 autoFocus="off"
                 autoComplete="off"
+                className="form-control"
                 onChange={updateMovieName}
               />
-              <input type="submit" className="btn btn-warning" />
             </form>
           </div>
-          <div className="row">
-            <Movies data={movieData} />
-          </div>
+          <Movies data={movieData} name={movieName} />
         </div>
       </div>
     );
