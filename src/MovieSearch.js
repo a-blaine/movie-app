@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Movies from "./Movies";
 import axios from "axios";
-import "font-awesome/css/font-awesome.min.css";
 
 export default function MovieSearch({ defaultMovie }) {
   const [movieName, setMovieName] = useState(defaultMovie);
@@ -42,7 +41,7 @@ export default function MovieSearch({ defaultMovie }) {
               <input
                 type="search"
                 placeholder="Search for a movie"
-                autoFocus="off"
+                autoFocus="on"
                 autoComplete="off"
                 className="form-control"
                 onChange={updateMovieName}
