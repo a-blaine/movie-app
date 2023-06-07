@@ -9,8 +9,8 @@ export default function MovieSearch({ defaultMovie }) {
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
+    console.log(response.data);
     setMovieData(response.data.Search);
-    setLoaded(true);
   }
 
   function searchMovies() {
@@ -26,6 +26,10 @@ export default function MovieSearch({ defaultMovie }) {
 
   function updateMovieName(event) {
     setMovieName(event.target.value);
+  }
+  function load() {
+    searchMovies(defaultMovie);
+    setLoaded(true);
   }
 
   if (loaded) {
@@ -51,8 +55,7 @@ export default function MovieSearch({ defaultMovie }) {
       </div>
     );
   } else {
-    searchMovies(defaultMovie);
-
+    load();
     return <div>LOADING..</div>;
   }
 }
