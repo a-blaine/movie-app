@@ -5,10 +5,10 @@ export default function Movie({ data }) {
   if (data) {
     return (
       <div className="Movie">
-        <div className="container">
+        <div className="row">
           {data.map((movie, index) => {
             return (
-              <div key={index}>
+              <div className="col-3" key={index}>
                 <MovieCard movie={movie} />
               </div>
             );
