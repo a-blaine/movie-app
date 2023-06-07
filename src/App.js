@@ -1,10 +1,10 @@
 import "./App.css";
-import Search from "./Search";
+import MovieSearch from "./MovieSearch";
 
 function App() {
   return (
     <div className="App">
-      <Search />
+      <MovieSearch />
     </div>
   );
 }

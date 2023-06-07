@@ -1,29 +1,43 @@
 import React from "react";
 
-export default function Movie({ movieData }) {
-  console.log(movieData);
+export default function Movie({ data }) {
+  console.log(data);
 
-  return (
-    <div className="Movie">
-      <div className="container">
-        <div className="movie-card">
-          <p>{movieData.Year}</p>
-        </div>
-        <div>
-          <img
-            src={
-              movieData.Poster !== "N/A"
-                ? movieData.Poster
-                : "https://via.placeholder.com/400"
-            }
-            alt={movieData.Title}
-          />
-        </div>
-        <div>
-          <span>{movieData.Type}</span>
-          <h3>{movieData.Title}</h3>
+  if (data.length > 0) {
+    return (
+      <div className="Movie">
+        <div className="container">
+          {data.map((movie, index) => {
+            return (
+              <div className="movie-card">
+                <div key={index}>
+                  <p>{movie.Year}</p>
+                </div>
+                <div>
+                  <img
+                    src={
+                      movie.Poster !== "N/A"
+                        ? movie.Poster
+                        : "https://via.placeholder.com/400"
+                    }
+                    alt={movie.Title}
+                  />
+                </div>
+                <div>
+                  <span>{movie.Type}</span>
+                  <h3>{movie.Title}</h3>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="container">
+        <div>No movies found with the</div>
+      </div>
+    );
+  }
 }
