@@ -54,23 +54,13 @@ export default function MovieSearch({ defaultMovie }) {
     );
   } else {
     load();
+
     return (
       <div className="MovieSearch">
         <div className="container">
           <div className="row text-center">
-            <h1>MovieFinder</h1>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                placeholder="Search for a movie"
-                autoFocus="off"
-                autoComplete="off"
-                className="form-control"
-                onChange={updateMovieName}
-              />
-            </form>
+            <div>LOADING..</div>;
           </div>
-          <div>LOADING..</div>;
         </div>
       </div>
     );
