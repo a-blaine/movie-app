@@ -27,8 +27,9 @@ export default function MovieSearch({ defaultMovie }) {
   function updateMovieName(event) {
     setMovieName(event.target.value);
   }
+
   function load() {
-    searchMovies(defaultMovie);
+    searchMovies();
     setLoaded(true);
   }
 
@@ -47,7 +48,6 @@ export default function MovieSearch({ defaultMovie }) {
                 className="form-control"
                 onChange={updateMovieName}
               />
-              <p>Search </p>
             </form>
           </div>
           <Movies data={movieData} name={movieName} />
