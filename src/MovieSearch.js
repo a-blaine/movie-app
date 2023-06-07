@@ -45,6 +45,7 @@ export default function MovieSearch() {
     );
   } else {
     searchMovies();
+
     return (
       <div>
         <div>LOADING..</div>
