@@ -5,7 +5,22 @@ import MovieSearch from "./MovieSearch";
 function App() {
   return (
     <div className="App">
-      <MovieSearch defaultMovie="Star Wars" />
+      <div className="container">
+        <main>
+          <MovieSearch defaultMovie="Star Wars" />
+        </main>
+        <footer className="m-3 text-center">
+          Coded by Ashley Blaine,{" "}
+          <a
+            href="https://github.com/a-blaine/movie-app"
+            rel="noopener noreferrer"
+            className="text-decoration-none"
+          >
+            open sourced
+          </a>{" "}
+          on GitHub and hosted on Netlify
+        </footer>
+      </div>
     </div>
   );
 }

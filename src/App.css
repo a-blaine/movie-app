@@ -3,17 +3,19 @@
   border: 0;
   box-sizing: border-box;
 }
+
 :root {
   --bg-color: #212426;
-}
-
-html {
   background: var(--bg-color);
 }
 
 .App {
   background: var(--bg-color);
   color: #fff;
+}
+
+.App footer {
+  color: rgb(85, 85, 71);
 }
 
 .MovieSearch h1 {
@@ -25,7 +27,7 @@ html {
   filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.7));
 }
 
-.MovieSearch input[type="search"] {
+.MovieSearch input {
   background: #34383a;
   border: solid 1px antiquewhite;
   color: #fff;
@@ -37,4 +39,23 @@ html {
 .MovieSearch input::placeholder {
   opacity: 0.4;
   color: antiquewhite;
+}
+
+@media (max-width: 960px) {
+  .MovieSearch h1 {
+    font-size: 60px;
+    margin: 50px 0 30px;
+  }
+
+  .MovieSearch input {
+    width: 75%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .MovieSearch h1 {
+    font-size: 50px;
+    margin: 50px 0 30px;
+  }
 }

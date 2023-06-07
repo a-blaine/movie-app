@@ -40,8 +40,8 @@ export default function MovieSearch({ defaultMovie }) {
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
-                placeholder="Search for a movie"
-                autoFocus="on"
+                placeholder="Search for a movie or series"
+                autoFocus="off"
                 autoComplete="off"
                 className="form-control"
                 onChange={updateMovieName}
@@ -58,9 +58,7 @@ export default function MovieSearch({ defaultMovie }) {
     return (
       <div className="MovieSearch">
         <div className="container">
-          <div className="row text-center">
-            <div>LOADING..</div>;
-          </div>
+          <div className="row text-center">LOADING..</div>
         </div>
       </div>
     );

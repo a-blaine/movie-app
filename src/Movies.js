@@ -8,7 +8,7 @@ export default function Movies({ data, name }) {
         <div className="row">
           {data.map((movie, index) => {
             return (
-              <div className="col-3 mt-3 mb-3" key={index}>
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6" key={index}>
                 <MovieCard movie={movie} />
               </div>
             );
