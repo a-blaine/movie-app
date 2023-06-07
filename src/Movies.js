@@ -2,9 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 export default function Movie({ data }) {
-  console.log(data);
-
-  if (data.length > 0) {
+  if (data) {
     return (
       <div className="Movie">
         <div className="container">
@@ -19,10 +17,6 @@ export default function Movie({ data }) {
       </div>
     );
   } else {
-    return (
-      <div className="container">
-        <div>No movies found with the</div>
-      </div>
-    );
+    return <div>No results found</div>;
   }
 }

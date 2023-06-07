@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Movie from "./Movie";
+import Movies from "./Movies";
 import axios from "axios";
 
-export default function MovieSearch() {
-  const [movieName, setMovieName] = useState(" ");
+export default function MovieSearch({ defaultMovie }) {
+  const [movieName, setMovieName] = useState(defaultMovie);
   const [movieData, setMovieData] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
-    setMovieData(response.data);
+    setMovieData(response.data.Search);
     setLoaded(true);
   }
 
@@ -40,7 +40,7 @@ export default function MovieSearch() {
             onChange={updateMovieName}
           />
         </form>
-        <Movie data={movieData} />
+        <Movies data={movieData} />
       </div>
     );
   } else {
