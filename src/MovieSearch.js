@@ -33,7 +33,7 @@ export default function MovieSearch({ defaultMovie }) {
     setLoaded(true);
   }
 
-  if (loaded) {
+  if (loaded === true) {
     return (
       <div className="MovieSearch">
         <div className="container">
