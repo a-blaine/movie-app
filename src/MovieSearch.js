@@ -9,7 +9,6 @@ export default function MovieSearch({ defaultMovie }) {
 
   function handleResponse(response) {
     setMovieData(response.data.Search);
-    setLoaded(true);
   }
 
   function searchMovies() {
@@ -29,6 +28,7 @@ export default function MovieSearch({ defaultMovie }) {
 
   function load() {
     searchMovies();
+    setLoaded(true);
   }
 
   if (loaded) {
